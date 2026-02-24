@@ -14,6 +14,7 @@ Route::get('/films/{film}', [FilmController::class, 'show']);
 Route::get('/cinemas', [CinemaController::class, 'index']);
 Route::get('/cinemas/{cinema}', [CinemaController::class, 'show']);
 
+
 Route::get('/seances/{seance}', [SeanceController::class, 'show']);
 
 Route::get('/reservation/{seance}', [ReservationController::class, 'create'])
