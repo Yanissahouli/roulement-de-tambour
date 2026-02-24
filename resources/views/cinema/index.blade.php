@@ -1,32 +1,15 @@
-<?php
-{{-- resources/views/cinemas/index.blade.php --}}
-
-@extends('layouts.app') {{-- si tu as un layout principal --}}
-
+@extends('layouts.app')
+@section('title', 'Nos Cinémas - CineForAll')
 @section('content')
-    <div class="container">
-        <h1>Liste des cinémas proposant ce film</h1>
-
-        @if($cinemas->isEmpty())
-            <p>Aucun cinéma ne propose ce film pour le moment.</p>
-        @else
-            <ul>
-                @foreach($cinemas as $cinema)
-                    <li>
-                        <h2>{{ $cinema->name }}</h2>
-                        <p>{{ $cinema->address }}</p>
-
-                        <h3>Séances disponibles :</h3>
-                        <ul>
-                            @foreach($cinema->seances->where('film_id', request()->query('film_id')) as $seance)
-                                <li>
-                                    {{ \Carbon\Carbon::parse($seance->start_time)->format('d/m/Y H:i') }}
-                                </li>
-                            @endforeach
-                        </ul>
-                    </li>
-                @endforeach
-            </ul>
-        @endif
+<h2 class="section-title">Nos Cinémas</h2>
+<section class="content-simple">
+    @foreach($cinemas as $cinema)
+    <div class="movie-card">
+        <h3>{{ $cinema->nomCin }}</h3>
+        <p>📍 {{ $cinema->vilCin }}</p>
+        <p>{{ $cinema->adrCin }}, {{ $cinema->cpCin }}</p>
+        <a href="{{ route('cinema.show', $cinema->idCin) }}">Voir les séances</a>
     </div>
+    @endforeach
+</section>
 @endsection

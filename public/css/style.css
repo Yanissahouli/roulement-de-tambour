@@ -1,0 +1,174 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #f3f3f3;
+}
+
+/* ================= HEADER ================= */
+
+header {
+    background-color: #c40000;
+    color: white;
+    padding: 15px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+}
+
+.search-bar input {
+    padding: 8px 15px;
+    width: 250px;
+    border: none;
+}
+
+/* ================= TOP SECTION ================= */
+
+.top-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 60px;
+}
+
+.logo img {
+    width: 100px;
+}
+
+.logo h2 {
+    color: #c40000;
+}
+
+.nav-menu {
+    background-color: #e5e5e5;
+    padding: 15px 40px;
+    border-radius: 15px;
+    display: flex;
+    gap: 40px;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+}
+
+.connexion-btn {
+    background: linear-gradient(to right, #ff2a2a, #c40000);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 40px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.connexion-btn:hover {
+    opacity: 0.9;
+}
+
+/* ================= TITRE ================= */
+
+.section-title {
+    text-align: center;
+    margin: 40px 0;
+    font-style: italic;
+    font-size: 28px;
+    color: #333;
+}
+
+/* ================= MOVIES ================= */
+
+.movies {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    margin-bottom: 80px;
+}
+
+.movie-card {
+    text-align: center;
+}
+
+.movie-card img {
+    width: 200px;
+    border-radius: 25px;
+    border: 3px solid #c40000;
+}
+
+.rating {
+    margin-top: 15px;
+    font-size: 18px;
+}
+
+.duration {
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+/* ================= FOOTER ================= */
+
+footer {
+    background-color: #c40000;
+    color: white;
+    text-align: center;
+    padding: 25px;
+}
+
+/* ================= PAGE ACTEUR ================= */
+
+.actor-container {
+    display: flex;
+    gap: 60px;
+    padding: 50px 100px;
+    align-items: center;
+}
+
+.actor-image img {
+    width: 300px;
+    border-radius: 15px;
+    border: 3px solid #c40000;
+}
+
+.actor-info ul {
+    margin-top: 20px;
+    line-height: 1.8;
+}
+
+/* ================= FORMULAIRES ================= */
+
+.form-container {
+    background: #ddd;
+    width: 400px;
+    margin: 60px auto;
+    padding: 40px;
+    border-radius: 15px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+}
+.content-simple {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin: 50px;
+    flex-wrap: wrap;
+}
+
+.link-white {
+    color: white;
+    text-decoration: none;
+}

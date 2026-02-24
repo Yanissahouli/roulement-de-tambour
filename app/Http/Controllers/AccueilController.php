@@ -12,6 +12,6 @@ class AccueilController extends Controller
         $films = Film::all();
         $cinemas = Cinema::all();
 
-        return view('accueil.accueil', compact('films', 'cinemas'));
+        return view('accueil.index', compact('films', 'cinemas'));
     }
 }
