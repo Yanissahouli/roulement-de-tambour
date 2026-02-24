@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>CineForAll</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 <body>
 
@@ -12,35 +12,33 @@
         <div class="header-left">N°1 SUR LE CINEMA</div>
 
         <div class="search-bar">
-            <form action="recherche.html" method="get">
+            <form action="#" method="get">
                 <input type="text" name="query" placeholder="Rechercher...">
                 <button type="submit">🔍</button>
             </form>
         </div>
 
         <div class="header-right">
-            <a href="inscription.html" style="color:white; text-decoration:none;">CREER UN COMPTE</a>
+            <a href="#" style="color:white; text-decoration:none;">CREER UN COMPTE</a>
         </div>
     </header>
 
     <!-- SECTION LOGO + NAV -->
     <section class="top-section">
-
         <div class="logo">
-            <img src="image/logo_CineForAll.png" alt="logo">
+            <img src="{{ asset('images/logo_CineForAll.png') }}" alt="logo">
             <h2>CineForAll</h2>
         </div>
 
         <nav class="nav-menu">
-            <a href="index.html">Accueil</a>
-            <a href="cinema.html">cinéma</a>
-            <a href="cinéaste.html">cinéaste</a>
-            <a href="user.html">user</a>
-            <a href="film.html">film</a>
+            <a href="{{ url('/') }}">Accueil</a>
+            <a href="#">Cinéma</a>
+            <a href="#">Cinéaste</a>
+            <a href="#">User</a>
+            <a href="#">Film</a>
         </nav>
 
-        <a href="connexion.html" class="connexion-btn">Connexion ▶</a>
-
+        <a href="#" class="connexion-btn">Connexion ▶</a>
     </section>
 
     <!-- TITRE -->
@@ -48,25 +46,23 @@
 
     <!-- FILMS -->
     <section class="movies">
-
         <div class="movie-card">
-            <img src="image/will_hunting.webp" alt="">
+            <img src="{{ asset('images/will_hunting.webp') }}" alt="Will Hunting">
             <div class="rating">⭐ 8,4/10</div>
             <div class="duration">🕒 120 min</div>
         </div>
 
         <div class="movie-card">
-            <img src="image/the_hunt.webp" alt="">
+            <img src="{{ asset('images/the_hunt.webp') }}" alt="The Hunt">
             <div class="rating">⭐ 8,4/10</div>
             <div class="duration">🕒 120 min</div>
         </div>
 
         <div class="movie-card">
-            <img src="image/Terminator_2.webp" alt="">
+            <img src="{{ asset('images/Terminator_2.webp') }}" alt="Terminator 2">
             <div class="rating">⭐ 8,4/10</div>
             <div class="duration">🕒 120 min</div>
         </div>
-
     </section>
 
     <!-- FOOTER -->
