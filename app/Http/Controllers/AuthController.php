@@ -7,13 +7,11 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
-    // Formulaire de connexion
     public function loginForm()
     {
         return view('auth.login');
     }
 
-    // Traitement de la connexion
     public function login(Request $request)
     {
         $credentials = $request->validate([

@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title>Séance</title>
-</head>
-<body>
+@extends('layouts.app')
+
+@section('title', 'Séance')
+
+@section('content')
 
 <h1>Séance</h1>
 
@@ -21,5 +19,4 @@
     </p>
 @endauth
 
-</body>
-</html>
+@endsection

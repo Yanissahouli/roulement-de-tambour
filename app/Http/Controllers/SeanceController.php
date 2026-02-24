@@ -9,7 +9,6 @@ class SeanceController extends Controller
 {
     public function show(Seance $seance)
     {
-        // Affiche les détails d'une séance
         return view('seances.show', compact('seance'));
     }
 }

@@ -9,11 +9,9 @@ class AccueilController extends Controller
 {
     public function index()
     {
-        // On récupère les données depuis la BDD
         $films = Film::all();
         $cinemas = Cinema::all();
 
-        // On les envoie à la vue
-        return view('accueil', compact('films', 'cinemas'));
+        return view('accueil.accueil', compact('films', 'cinemas'));
     }
 }
