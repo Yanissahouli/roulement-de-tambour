@@ -3,54 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <title>CineForAll</title>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-    <div class="logo">🎬 CineForAll</div>
+    <!-- HEADER ROUGE -->
+    <header>
+        <div class="header-left">N°1 SUR LE CINEMA</div>
 
-    <input type="text" placeholder="Rechercher un film...">
-
-    <div class="actions">
-        <a href="#">Créer un compte</a>
-        <button>Connexion</button>
-    </div>
-</header>
-
-<main>
-    <h1>Dernières sorties</h1>
-
-    <section class="movies">
-        <!-- Film 1 -->
-        <div class="card">
-            <img src="image/neuilliesamere.jpg" alt="Film 1">
-            <h2>Film 1</h2>
-            <p>⭐ 8,4 / 10</p>
-            <p>⏱ 120 min</p>
+        <div class="search-bar">
+            <form action="recherche.html" method="get">
+                <input type="text" name="query" placeholder="Rechercher...">
+                <button type="submit">🔍</button>
+            </form>
         </div>
 
-        <!-- Film 2 -->
-        <div class="card">
-            <img src="image/22.jpg" alt="Film 1">
-            <h2>Film 2</h2>
-            <p>⭐ 8,4 / 10</p>
-            <p>⏱ 120 min</p>
+        <div class="header-right">
+            <a href="inscription.html" style="color:white; text-decoration:none;">CREER UN COMPTE</a>
+        </div>
+    </header>
+
+    <!-- SECTION LOGO + NAV -->
+    <section class="top-section">
+
+        <div class="logo">
+            <img src="image/logo_CineForAll.png" alt="logo">
+            <h2>CineForAll</h2>
         </div>
 
-        <!-- Film 3 -->
-        <div class="card">
-            <img src="https://www.allocine.fr/film/fichefilm_gen_cfilm=266846.html" alt="Film 3">
-            <h2>Film 3</h2>
-            <p>⭐ 8,4 / 10</p>
-            <p>⏱ 120 min</p>
-        </div>
+        <nav class="nav-menu">
+            <a href="index.html">Accueil</a>
+            <a href="cinema.html">cinéma</a>
+            <a href="cinéaste.html">cinéaste</a>
+            <a href="user.html">user</a>
+            <a href="film.html">film</a>
+        </nav>
+
+        <a href="connexion.html" class="connexion-btn">Connexion ▶</a>
+
     </section>
-</main>
 
-<footer>
-    © 2025 CineForAll – Plateforme fictive
-</footer>
+    <!-- TITRE -->
+    <h2 class="section-title">Dernières sorties</h2>
+
+    <!-- FILMS -->
+    <section class="movies">
+
+        <div class="movie-card">
+            <img src="image/will_hunting.webp" alt="">
+            <div class="rating">⭐ 8,4/10</div>
+            <div class="duration">🕒 120 min</div>
+        </div>
+
+        <div class="movie-card">
+            <img src="image/the_hunt.webp" alt="">
+            <div class="rating">⭐ 8,4/10</div>
+            <div class="duration">🕒 120 min</div>
+        </div>
+
+        <div class="movie-card">
+            <img src="image/Terminator_2.webp" alt="">
+            <div class="rating">⭐ 8,4/10</div>
+            <div class="duration">🕒 120 min</div>
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2025 CineForAll – Tous droits réservés.</p>
+        <p>CineForAll est une plateforme fictive destinée à présenter des films, séries, actualités et critiques.</p>
+        <p>Nous contacter</p>
+    </footer>
 
 </body>
 </html>
