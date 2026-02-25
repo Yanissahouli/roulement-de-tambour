@@ -13,7 +13,7 @@ Route::get('/', [AccueilController::class, 'index'])->name('home');
 
 // Films
 Route::get('/films', [FilmController::class, 'index'])->name('film.index');
-Route::get('/films/{film}', [FilmController::class, 'show']);
+Route::get('/films/{film}', [FilmController::class, 'show'])->name('film.show');
 
 // Cinémas
 Route::get('/cinemas', [CinemaController::class, 'index'])->name('cinema.index');
@@ -23,7 +23,7 @@ Route::get('/cinemas/{cinema}', [CinemaController::class, 'show']);
 Route::get('/seances/{seance}', [SeanceController::class, 'show']);
 
 // Réservations (protégées)
-Route::get('/reservation/{seance}', [ReservationController::class, 'create'])->middleware('auth');
+Route::get('/reservation/{seance}', [ReservationController::class, 'create'])->name('reservation.create')->middleware('auth');
 Route::post('/reservation', [ReservationController::class, 'store'])->middleware('auth');
 
 // Auth

@@ -1,36 +1,30 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title>Connexion</title>
-</head>
-<body>
+@extends('layouts.app')
+@section('title', 'Connexion - CineForAll')
+@section('content')
 
-<h1>Connexion</h1>
+<div class="form-container">
+    <h2 style="font-family: 'Orbitron', sans-serif; color: #e0e0e0; margin-bottom: 25px; text-align: center;">CONNEXION</h2>
 
-@if ($errors->any())
-    <ul style="color:red;">
+    @if ($errors->any())
+    <ul style="color: #ff4444; margin-bottom: 20px;">
         @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
+        <li>{{ $error }}</li>
         @endforeach
     </ul>
-@endif
+    @endif
 
-<form method="POST" action="/login">
-    @csrf
+    <form method="POST" action="/login">
+        @csrf
+        <div class="form-group">
+            <label style="color: #aaa;">Email</label>
+            <input type="email" name="email" value="{{ old('email') }}" required>
+        </div>
+        <div class="form-group">
+            <label style="color: #aaa;">Mot de passe</label>
+            <input type="password" name="password" required>
+        </div>
+        <button type="submit" class="connexion-btn" style="width: 100%; margin-top: 10px;">SE CONNECTER</button>
+    </form>
+</div>
 
-    <div>
-        <label>Email</label><br>
-        <input type="email" name="email" value="{{ old('email') }}" required>
-    </div>
-
-    <div>
-        <label>Mot de passe</label><br>
-        <input type="password" name="password" required>
-    </div>
-
-    <button type="submit">Se connecter</button>
-</form>
-
-</body>
-</html>
+@endsection

@@ -1,95 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600;700&display=swap');
+
 /* RESET */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Rajdhani', Arial, sans-serif;
 }
 
 body {
-    background-color: #f3f3f3;
+    background-color: #1a1a2e;
+    color: #e0e0e0;
 }
 
 /* ================= HEADER ================= */
-
 header {
-    background-color: #c40000;
+    background-color: #991917;
     color: white;
     padding: 15px 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-weight: bold;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    letter-spacing: 2px;
+    border-bottom: 2px solid #7a1210;
 }
 
 .search-bar input {
     padding: 8px 15px;
     width: 250px;
     border: none;
+    border-radius: 5px;
+    background: #7a1210;
+    color: white;
+    outline: none;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 14px;
+}
+
+.search-bar input::placeholder {
+    color: #ffaaaa;
 }
 
 /* ================= TOP SECTION ================= */
-
 .top-section {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 40px 60px;
+    padding: 25px 60px;
+    background-color: #16213e;
+    border-bottom: 2px solid #991917;
 }
 
 .logo img {
-    width: 100px;
+    width: 80px;
 }
 
 .logo h2 {
-    color: #c40000;
+    color: #991917;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 18px;
+    margin-top: 5px;
+    letter-spacing: 3px;
 }
 
 .nav-menu {
-    background-color: #e5e5e5;
-    padding: 15px 40px;
-    border-radius: 15px;
+    background-color: #0f3460;
+    padding: 12px 35px;
+    border-radius: 5px;
     display: flex;
-    gap: 40px;
+    gap: 35px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    border: 1px solid #1a4a8a;
 }
 
 .nav-menu a {
     text-decoration: none;
-    color: #333;
-    font-size: 14px;
+    color: #ccc;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: color 0.2s;
+    font-family: 'Rajdhani', sans-serif;
+}
+
+.nav-menu a:hover {
+    color: #ff4444;
 }
 
 .connexion-btn {
-    background: linear-gradient(to right, #ff2a2a, #c40000);
+    background: linear-gradient(to right, #ff2a2a, #991917);
     color: white;
     border: none;
-    padding: 15px 30px;
-    border-radius: 40px;
-    font-size: 16px;
+    padding: 12px 28px;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: 700;
     cursor: pointer;
+    text-decoration: none;
+    font-family: 'Rajdhani', sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 15px rgba(153,25,23,0.5);
+    transition: opacity 0.2s;
 }
 
 .connexion-btn:hover {
-    opacity: 0.9;
+    opacity: 0.85;
 }
 
 /* ================= TITRE ================= */
-
 .section-title {
     text-align: center;
     margin: 40px 0;
-    font-style: italic;
-    font-size: 28px;
-    color: #333;
+    font-size: 26px;
+    color: #e0e0e0;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
 }
 
 /* ================= MOVIES ================= */
-
 .movies {
     display: flex;
     justify-content: center;
-    gap: 100px;
+    gap: 60px;
     margin-bottom: 80px;
+    flex-wrap: wrap;
 }
 
 .movie-card {
@@ -98,31 +138,45 @@ header {
 
 .movie-card img {
     width: 200px;
-    border-radius: 25px;
-    border: 3px solid #c40000;
+    border-radius: 5px;
+    border: 3px solid #991917;
+    box-shadow: 0 8px 25px rgba(153,25,23,0.4);
+    transition: transform 0.2s;
+}
+
+.movie-card img:hover {
+    transform: scale(1.05);
 }
 
 .rating {
-    margin-top: 15px;
-    font-size: 18px;
+    margin-top: 12px;
+    font-size: 16px;
+    color: #ccc;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
 }
 
 .duration {
-    margin-top: 10px;
-    font-size: 16px;
+    margin-top: 8px;
+    font-size: 14px;
+    color: #aaa;
+    font-family: 'Rajdhani', sans-serif;
 }
 
 /* ================= FOOTER ================= */
-
 footer {
-    background-color: #c40000;
+    background-color: #991917;
     color: white;
     text-align: center;
     padding: 25px;
+    border-top: 2px solid #7a1210;
+    font-size: 13px;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    letter-spacing: 1px;
 }
 
 /* ================= PAGE ACTEUR ================= */
-
 .actor-container {
     display: flex;
     gap: 60px;
@@ -132,23 +186,26 @@ footer {
 
 .actor-image img {
     width: 300px;
-    border-radius: 15px;
-    border: 3px solid #c40000;
+    border-radius: 5px;
+    border: 3px solid #991917;
+    box-shadow: 0 8px 25px rgba(153,25,23,0.4);
 }
 
 .actor-info ul {
     margin-top: 20px;
     line-height: 1.8;
+    color: #ccc;
 }
 
 /* ================= FORMULAIRES ================= */
-
 .form-container {
-    background: #ddd;
+    background: #16213e;
     width: 400px;
     margin: 60px auto;
     padding: 40px;
-    border-radius: 15px;
+    border-radius: 5px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+    border: 1px solid #991917;
 }
 
 .form-group {
@@ -159,7 +216,14 @@ footer {
     width: 100%;
     padding: 10px;
     border: none;
+    border-radius: 5px;
+    background: #2a2a3e;
+    color: white;
+    outline: none;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 15px;
 }
+
 .content-simple {
     display: flex;
     justify-content: center;
@@ -171,4 +235,25 @@ footer {
 .link-white {
     color: white;
     text-decoration: none;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+/* ================= CARDS GENERIQUES ================= */
+.movie-card h3 {
+    margin-top: 10px;
+    color: #e0e0e0;
+    font-size: 15px;
+    font-weight: 700;
+    font-family: 'Rajdhani', sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.movie-card p {
+    color: #aaa;
+    font-size: 13px;
+    margin-top: 5px;
+    font-family: 'Rajdhani', sans-serif;
 }
