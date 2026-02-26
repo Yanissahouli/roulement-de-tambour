@@ -19,28 +19,12 @@ header {
     color: white;
     padding: 15px 50px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     font-family: 'Orbitron', sans-serif;
     font-weight: 700;
     letter-spacing: 2px;
     border-bottom: 2px solid #7a1210;
-}
-
-.search-bar input {
-    padding: 8px 15px;
-    width: 250px;
-    border: none;
-    border-radius: 5px;
-    background: #7a1210;
-    color: white;
-    outline: none;
-    font-family: 'Rajdhani', sans-serif;
-    font-size: 14px;
-}
-
-.search-bar input::placeholder {
-    color: #ffaaaa;
 }
 
 /* ================= TOP SECTION ================= */
@@ -257,3 +241,5 @@ footer {
     margin-top: 5px;
     font-family: 'Rajdhani', sans-serif;
 }
+
+

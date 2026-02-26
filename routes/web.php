@@ -36,6 +36,9 @@ Route::post('/register', [AuthController::class, 'register']);
 Route::get('/cineastes', [CineasteController::class, 'index'])->name('cineaste.index');
 
 // Utilisateurs
-Route::get('/users', [UserController::class, 'index'])->name('user.index');     
+Route::get('/users', [UserController::class, 'index'])->name('user.index');
 
 Route::get('/cinemas/{cinema}', [CinemaController::class, 'show'])->name('cinema.show');
+
+Route::get('/inscription', [UserController::class, 'showInscription']);
+Route::post('/inscription', [UserController::class, 'store']);

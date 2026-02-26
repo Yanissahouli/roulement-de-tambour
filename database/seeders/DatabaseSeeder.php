@@ -15,13 +15,6 @@ class DatabaseSeeder extends Seeder
             ['nomCin' => 'Pathé Annecy', 'adrCin' => '12 rue du Lac', 'vilCin' => 'Annecy', 'cpCin' => '74000'],
         ]);
 
-        DB::table('genre')->insert([
-            ['libGen' => 'Action'],
-            ['libGen' => 'Comédie'],
-            ['libGen' => 'Drame'],
-            ['libGen' => 'Science-Fiction'],
-            ['libGen' => 'Horreur'],
-        ]);
 
         DB::table('cineaste')->insert([
             ['preCineaste' => 'Christopher', 'nomCineaste' => 'Nolan', 'datNaiCineaste' => '1970-07-30', 'natCineaste' => 'Britannique', 'bioCineaste' => 'Réalisateur britannique reconnu mondialement.'],
@@ -30,9 +23,9 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('film')->insert([
-            ['titFilm' => 'Inception', 'desFilm' => 'Un voleur entre dans les rêves.', 'annsorFilm' => '2010-07-16', 'lanFilm' => 'Anglais', 'durFilm' => '02:28:00'],
-            ['titFilm' => 'Interstellar', 'desFilm' => 'Des astronautes voyagent dans le temps.', 'annsorFilm' => '2014-11-05', 'lanFilm' => 'Anglais', 'durFilm' => '02:49:00'],
-            ['titFilm' => 'Avengers', 'desFilm' => 'Des super-héros sauvent le monde.', 'annsorFilm' => '2012-04-25', 'lanFilm' => 'Anglais', 'durFilm' => '02:23:00'],
+            ['titFilm' => 'Inception', 'desFilm' => 'Un voleur entre dans les rêves.', 'annsorFilm' => '2010-07-16', 'lanFilm' => 'VF', 'durFilm' => '02:28:00', 'imgFilm' => 'inception.jpg'],
+            ['titFilm' => 'Interstellar', 'desFilm' => 'Des astronautes voyagent dans le temps.', 'annsorFilm' => '2014-11-05', 'lanFilm' => 'VF', 'durFilm' => '02:49:00', 'imgFilm' => 'interstellar.jpg'],
+            ['titFilm' => 'Avengers', 'desFilm' => 'Des super-héros sauvent le monde.', 'annsorFilm' => '2012-04-25', 'lanFilm' => 'VF', 'durFilm' => '02:23:00', 'imgFilm' => 'avengers.jpg'],
         ]);
 
         DB::table('salle')->insert([

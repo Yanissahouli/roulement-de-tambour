@@ -8,14 +8,9 @@
 <body>
 
 <header>
-    <div class="header-left">N°1 SUR LE CINEMA</div>
 
-    <div class="search-bar">
-        <input type="text" placeholder="Rechercher...">
-    </div>
-
-    <div class="header-right">
-        <a href="{{ route('register') }}" class="link-white">CREER UN COMPTE</a>
+    <div class>
+        <a>Bienvenue chez Roulement de Tambour</a>
     </div>
 </header>
 
