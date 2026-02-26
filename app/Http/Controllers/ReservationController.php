@@ -10,16 +10,25 @@ class ReservationController extends Controller
 {
     public function create(Seance $seance)
     {
-        return view('reservations.create', compact('seance'));
+      return view('reservation.create', compact('seance'));
     }
 
     public function store(Request $request)
-    {
-        Reservation::create([
-            'user_id' => auth()->id(),
-            'seance_id' => $request->seance_id
-        ]);
+{
+    $existe = Reservation::where('idUti', auth()->id())
+                         ->where('idSeance', $request->seance_id)
+                         ->exists();
 
-        return redirect('/')->with('success', 'Réservation confirmée');
+    if ($existe) {
+        return redirect()->back()->with('error', 'Vous avez déjà réservé cette séance.');
     }
+
+    Reservation::create([
+        'idUti' => auth()->id(),
+        'idSeance' => $request->seance_id,
+        'nbPers' => $request->nbPers
+    ]);
+
+    return redirect('/')->with('success', 'Réservation confirmée !');
+}
 }
