@@ -8,9 +8,10 @@ class CinemaController extends Controller
         $cinemas = Cinema::all();
         return view('cinema.index', compact('cinemas'));
     }
-
-    public function show(Cinema $cinema)
+ public function show(Cinema $cinema)
     {
+        $cinema->load('films');
         return view('cinema.show', compact('cinema'));
+        
     }
 }
