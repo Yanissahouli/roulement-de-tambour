@@ -17,12 +17,7 @@
             <li><strong>Durée :</strong> {{ $film->durFilm }}</li>
         </ul>
 
-        @auth
-            @if(auth()->user()->isAdmin())
-            <a href="{{ route('seance.create') }}" class="connexion-btn" style="display: inline-block; margin-top: 20px;">+ Ajouter une séance</a>
-            @endif
-        @endauth
-
+       
         <h3 style="margin-top: 30px; font-family: 'Orbitron', sans-serif; letter-spacing: 2px;">SÉANCES DISPONIBLES</h3>
         <div style="display: flex; flex-wrap: wrap; gap: 15px; margin-top: 15px;">
             @forelse($film->seances as $seance)
