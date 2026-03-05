@@ -9,10 +9,13 @@ use Illuminate\Http\Request;
 class UserController extends Controller
 {
     public function index()
-    {
-        $users = User::all();
-        return view('user.index', compact('users'));
-    }
+{
+    $user = auth()->user();
+    $reservations = \App\Models\Reservation::where('idUti', auth()->id())
+                    ->with('seance')
+                    ->get();
+    return view('user.index', compact('user', 'reservations'));
+}
 
     public function showInscription()
     {
