@@ -11,8 +11,12 @@ use App\Http\Controllers\UserController;
 // Accueil
 Route::get('/', [AccueilController::class, 'index'])->name('home');
 
-// Films
+/// Films
 Route::get('/films', [FilmController::class, 'index'])->name('film.index');
+//cration 
+Route::get('/films/create', [FilmController::class, 'create'])->name('film.create')->middleware('auth');
+Route::post('/films', [FilmController::class, 'store'])->name('film.store')->middleware('auth');
+//
 Route::get('/films/{film}', [FilmController::class, 'show'])->name('film.show');
 
 // Cinéma

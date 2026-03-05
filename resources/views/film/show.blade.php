@@ -17,15 +17,22 @@
             <li><strong>Durée :</strong> {{ $film->durFilm }}</li>
         </ul>
 
+        @auth
+            @if(auth()->user()->isAdmin())
+            <a href="{{ route('seance.create') }}" class="connexion-btn" style="display: inline-block; margin-top: 20px;">+ Ajouter une séance</a>
+            @endif
+        @endauth
+
         <h3 style="margin-top: 30px; font-family: 'Orbitron', sans-serif; letter-spacing: 2px;">SÉANCES DISPONIBLES</h3>
         <div style="display: flex; flex-wrap: wrap; gap: 15px; margin-top: 15px;">
             @forelse($film->seances as $seance)
-           <a href="{{ auth()->check() ? route('reservation.create', $seance->idSeance) : route('login') }}" style="text-decoration: none;">
-            <div style="background: #0f3460; border: 1px solid #991917; border-radius: 8px; padding: 15px 20px; min-width: 200px;">
-                <p style="font-weight: 700; color: #e0e0e0; font-size: 16px;">{{ $seance->salle->cinema->nomCin }}</p>
-                <p style="color: #aaa; margin-top: 8px;">📅 {{ $seance->dateSeance }}</p>
-                <p style="color: #aaa; margin-top: 5px;">💰 {{ $seance->tarifSeance }}€</p>
-            </div>
+            <a href="{{ auth()->check() ? route('reservation.create', $seance->idSeance) : route('login') }}" style="text-decoration: none;">
+                <div style="background: #0f3460; border: 1px solid #991917; border-radius: 8px; padding: 15px 20px; min-width: 200px;">
+                    <p style="font-weight: 700; color: #e0e0e0; font-size: 16px;">{{ $seance->salle->cinema->nomCin }}</p>
+                    <p style="color: #aaa; margin-top: 8px;">📅 {{ $seance->dateSeance }}</p>
+                    <p style="color: #aaa; margin-top: 5px;">💰 {{ $seance->tarifSeance }}€</p>
+                </div>
+            </a>
             @empty
             <p>Aucune séance disponible.</p>
             @endforelse

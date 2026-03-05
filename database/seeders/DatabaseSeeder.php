@@ -175,7 +175,7 @@ class DatabaseSeeder extends Seeder
             ['idSeance' => 12, 'idFilm' => 12],
         ]);
 
-        DB::table('reserver')->insert([
+       /* DB::table('reserver')->insert([
             ['idUti' => 1, 'idSeance' => 1,  'nbPers' => '2'],
             ['idUti' => 2, 'idSeance' => 2,  'nbPers' => '3'],
             ['idUti' => 3, 'idSeance' => 3,  'nbPers' => '1'],
@@ -183,6 +183,6 @@ class DatabaseSeeder extends Seeder
             ['idUti' => 5, 'idSeance' => 7,  'nbPers' => '2'],
             ['idUti' => 1, 'idSeance' => 9,  'nbPers' => '3'],
             ['idUti' => 2, 'idSeance' => 11, 'nbPers' => '2'],
-        ]);
+        ]);*/
     }
 }
