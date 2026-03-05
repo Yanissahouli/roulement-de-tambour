@@ -12,10 +12,14 @@ class ReservationController extends Controller
     {
       return view('reservation.create', compact('seance'));
     }
+    public function seance()
+    {
+     return $this->belongsTo(Seance::class, 'idSeance', 'idSeance');
+    }
 
     public function store(Request $request)
 {
-    $existe = Reservation::where('idUti', auth()->id())
+    $existe = Reservation::where('idUti', auth()->user()->id)
                          ->where('idSeance', $request->seance_id)
                          ->exists();
 
@@ -24,7 +28,7 @@ class ReservationController extends Controller
     }
 
     Reservation::create([
-        'idUti' => auth()->id(),
+        'idUti' => auth()->user()->id,
         'idSeance' => $request->seance_id,
         'nbPers' => $request->nbPers
     ]);

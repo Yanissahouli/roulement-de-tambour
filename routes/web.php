@@ -37,8 +37,16 @@ Route::get('/cineastes', [CineasteController::class, 'index'])->name('cineaste.i
 
 // Utilisateurs
 Route::get('/users', [UserController::class, 'index'])->name('user.index');
+//utilisateur (proteger)
+Route::get('/users', [UserController::class, 'index'])->name('user.index')->middleware('auth');
 
 Route::get('/cinemas/{cinema}', [CinemaController::class, 'show'])->name('cinema.show');
 
 Route::get('/inscription', [UserController::class, 'showInscription']);
 Route::post('/inscription', [UserController::class, 'store']);
+
+//bouton connection 
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::post('/logout', [AuthController::class, 'logout']);
+ //Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+//Route::post('/logout', [AuthController::class, 'logout'])->name('logout');

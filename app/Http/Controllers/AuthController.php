@@ -11,6 +11,11 @@ class AuthController extends Controller
     {
         return view('auth.login');
     }
+    public function logout()
+    {
+        auth()->logout();
+        return redirect('/');
+    }
 
     public function login(Request $request)
     {
