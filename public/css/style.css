@@ -120,12 +120,14 @@ header {
     text-align: center;
 }
 
+/* Dimension des images  */
 .movie-card img {
     width: 200px;
+    height: 280px;
+    object-fit: cover;
     border-radius: 5px;
     border: 3px solid #991917;
     box-shadow: 0 8px 25px rgba(153,25,23,0.4);
-    transition: transform 0.2s;
 }
 
 .movie-card img:hover {

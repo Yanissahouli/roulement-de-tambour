@@ -26,6 +26,7 @@
         <p>🕒 152 min</p>
     </div>
 
+
 </section>
 
 @endsection
