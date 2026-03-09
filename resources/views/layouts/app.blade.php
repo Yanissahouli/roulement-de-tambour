@@ -8,7 +8,6 @@
 <body>
 
 <header>
-
     <div class>
         <a>Bienvenue chez Roulement de Tambour</a>
     </div>
@@ -17,7 +16,7 @@
 <section class="top-section">
 
     <div class="logo">
-       <img src="{{ asset('img/logo_CineForAll.png') }}" alt="Logo CineForAll">
+        <img src="{{ asset('img/logo_CineForAll.png') }}" alt="Logo CineForAll">
         <h2>CineForAll</h2>
     </div>
 
@@ -28,15 +27,15 @@
         <a href="{{ route('film.index') }}">Film</a>
         <a href="{{ route('user.index') }}">Utilisateur</a>
     </nav>
- <!--vérifie si l'utilisateur est connecté-->  
+
     @guest
-<a href="{{ route('login') }}" class="connexion-btn">Connexion ▶</a>
-@else
-<form method="POST" action="{{ route('logout') }}" style="display:inline;">
-    @csrf <!--sécurité Laravel.--> 
-    <button type="submit" class="connexion-btn">Déconnexion ▶</button>
-</form>
-@endguest
+        <a href="{{ route('login') }}" class="connexion-btn">Connexion ▶</a>
+    @else
+        <form method="POST" action="{{ route('logout') }}" style="display:inline;">
+            @csrf
+            <button type="submit" class="connexion-btn">Déconnexion ▶</button>
+        </form>
+    @endguest
 
 </section>
 
