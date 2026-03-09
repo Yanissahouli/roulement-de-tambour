@@ -1,31 +1,25 @@
 @extends('layouts.app')
-
-@section('title', 'Mes Favoris')
-
+@section('title', 'Films - CineForAll')
 @section('content')
+<h2 class="section-title">Nos Films</h2>
 
-<h2 class="section-title">Mes Films Favoris</h2>
+@auth
+    @if(auth()->user()->isAdmin())
+    <div style="text-align: center; margin-bottom: 20px;">
+        <a href="{{ route('film.create') }}" class="connexion-btn">+ Ajouter un film</a>
+    </div>
+    @endif
+@endauth
 
 <section class="movies">
-
+    @foreach($films as $film)
     <div class="movie-card">
-        <h3>Inception</h3>
-        <p>⭐ 8.8/10</p>
-        <p>🕒 148 min</p>
+        <a href="{{ route('film.show', $film->idFilm) }}">
+            <img src="{{ asset('img/' . $film->imgFilm) }}" alt="{{ $film->titFilm }}">
+        </a>
+        <div class="rating">⭐ {{ $film->annsorFilm }}</div>
+        <div class="duration">🕒 {{ $film->durFilm }} min</div>
     </div>
-
-    <div class="movie-card">
-        <h3>Gladiator</h3>
-        <p>⭐ 8.5/10</p>
-        <p>🕒 155 min</p>
-    </div>
-
-    <div class="movie-card">
-        <h3>The Dark Knight</h3>
-        <p>⭐ 9.0/10</p>
-        <p>🕒 152 min</p>
-    </div>
-
+    @endforeach
 </section>
-
 @endsection

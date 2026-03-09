@@ -8,14 +8,9 @@
 <body>
 
 <header>
-    <div class="header-left">N°1 SUR LE CINEMA</div>
 
-    <div class="search-bar">
-        <input type="text" placeholder="Rechercher...">
-    </div>
-
-    <div class="header-right">
-        <a href="{{ route('register') }}" class="link-white">CREER UN COMPTE</a>
+    <div class>
+        <a>Bienvenue chez Roulement de Tambour</a>
     </div>
 </header>
 
@@ -29,18 +24,39 @@
 
     <nav class="nav-menu">
         <a href="{{ route('home') }}">Accueil</a>
-        <a href="{{ route('cinema.index') }}">Cinéma</a>
+        <a href="{{ route('cinema.index') }}">Cinéma</a>    
         <a href="{{ route('cineaste.index') }}">Cinéaste</a>
         <a href="{{ route('film.index') }}">Film</a>
         <a href="{{ route('user.index') }}">Utilisateur</a>
     </nav>
-
-    <a href="{{ route('login') }}" class="connexion-btn">Connexion ▶</a>
+ <!--vérifie si l'utilisateur est connecté-->  
+    @guest
+<a href="{{ route('login') }}" class="connexion-btn">Connexion ▶</a>
+@else
+<form method="POST" action="{{ route('logout') }}" style="display:inline;">
+    @csrf <!--sécurité Laravel.--> 
+    <button type="submit" class="connexion-btn">Déconnexion ▶</button>
+</form>
+@endguest
 
 </section>
 
 <main>
+    
+    @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
+
+    @if(session('error'))
+        <div class="alert alert-error">
+            {{ session('error') }}
+        </div>
+    @endif
+
     @yield('content')
+
 </main>
 
 <footer>

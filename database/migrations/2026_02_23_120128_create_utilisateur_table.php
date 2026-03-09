@@ -13,7 +13,7 @@ return new class extends Migration
             $table->string('nomUti', 100);
             $table->string('preUti', 100);
             $table->string('mailUtil', 191)->unique();
-            $table->string('mdpUti', 50);
+            $table->string('mdpUti', 255);
             $table->string('rolUti', 20)->default('user');
             $table->timestamps();
         });

@@ -19,28 +19,12 @@ header {
     color: white;
     padding: 15px 50px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     font-family: 'Orbitron', sans-serif;
     font-weight: 700;
     letter-spacing: 2px;
     border-bottom: 2px solid #7a1210;
-}
-
-.search-bar input {
-    padding: 8px 15px;
-    width: 250px;
-    border: none;
-    border-radius: 5px;
-    background: #7a1210;
-    color: white;
-    outline: none;
-    font-family: 'Rajdhani', sans-serif;
-    font-size: 14px;
-}
-
-.search-bar input::placeholder {
-    color: #ffaaaa;
 }
 
 /* ================= TOP SECTION ================= */
@@ -136,12 +120,14 @@ header {
     text-align: center;
 }
 
+/* Dimension des images  */
 .movie-card img {
     width: 200px;
+    height: 280px;
+    object-fit: cover;
     border-radius: 5px;
     border: 3px solid #991917;
     box-shadow: 0 8px 25px rgba(153,25,23,0.4);
-    transition: transform 0.2s;
 }
 
 .movie-card img:hover {
@@ -256,4 +242,27 @@ footer {
     font-size: 13px;
     margin-top: 5px;
     font-family: 'Rajdhani', sans-serif;
+}
+
+
+.alert {
+    padding: 12px 20px;
+    margin: 15px auto;
+    max-width: 800px;
+    border-radius: 6px;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.1rem;
+    text-align: center;
+}
+/* ================= pour les message de confirmation zehma conection reussi  ================= */
+.alert-success {
+    background-color: rgba(0, 180, 0, 0.15);
+    border: 1px solid #00b400;
+    color: #00e000;
+}
+
+.alert-error {
+    background-color: rgba(153, 25, 23, 0.15);
+    border: 1px solid #991917;
+    color: #ff4444;
 }

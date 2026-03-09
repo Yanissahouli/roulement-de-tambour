@@ -11,9 +11,17 @@ use App\Http\Controllers\UserController;
 // Accueil
 Route::get('/', [AccueilController::class, 'index'])->name('home');
 
-// Films
+/// Films
 Route::get('/films', [FilmController::class, 'index'])->name('film.index');
+//cration 
+Route::get('/films/create', [FilmController::class, 'create'])->name('film.create')->middleware('auth');
+Route::post('/films', [FilmController::class, 'store'])->name('film.store')->middleware('auth');
+//
 Route::get('/films/{film}', [FilmController::class, 'show'])->name('film.show');
+//les routes des modification et supresion film
+Route::get('/films/{film}/edit', [FilmController::class, 'edit'])->name('film.edit');
+Route::put('/films/{film}', [FilmController::class, 'update'])->name('film.update');
+Route::delete('/films/{film}', [FilmController::class, 'destroy'])->name('film.destroy');
 
 // Cinéma
 Route::get('/cinemas', [CinemaController::class, 'index'])->name('cinema.index');
@@ -36,6 +44,17 @@ Route::post('/register', [AuthController::class, 'register']);
 Route::get('/cineastes', [CineasteController::class, 'index'])->name('cineaste.index');
 
 // Utilisateurs
-Route::get('/users', [UserController::class, 'index'])->name('user.index');     
+Route::get('/users', [UserController::class, 'index'])->name('user.index');
+//utilisateur (proteger)
+Route::get('/users', [UserController::class, 'index'])->name('user.index')->middleware('auth');
 
 Route::get('/cinemas/{cinema}', [CinemaController::class, 'show'])->name('cinema.show');
+
+Route::get('/inscription', [UserController::class, 'showInscription']);
+Route::post('/inscription', [UserController::class, 'store']);
+
+//bouton connection 
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::post('/logout', [AuthController::class, 'logout']);
+ //Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+//Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
