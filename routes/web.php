@@ -18,6 +18,10 @@ Route::get('/films/create', [FilmController::class, 'create'])->name('film.creat
 Route::post('/films', [FilmController::class, 'store'])->name('film.store')->middleware('auth');
 //
 Route::get('/films/{film}', [FilmController::class, 'show'])->name('film.show');
+//les routes des modification et supresion film
+Route::get('/films/{film}/edit', [FilmController::class, 'edit'])->name('film.edit');
+Route::put('/films/{film}', [FilmController::class, 'update'])->name('film.update');
+Route::delete('/films/{film}', [FilmController::class, 'destroy'])->name('film.destroy');
 
 // Cinéma
 Route::get('/cinemas', [CinemaController::class, 'index'])->name('cinema.index');

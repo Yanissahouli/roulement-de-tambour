@@ -5,7 +5,14 @@ class Film extends Model
 {
     protected $table = 'film';
     protected $primaryKey = 'idFilm';
+    public $timestamps = false;
     protected $fillable = ['titFilm', 'desFilm', 'annsorFilm', 'lanFilm', 'durFilm', 'imgFilm'];
+
+    // ← ajoute ça
+    public function getRouteKeyName()
+    {
+        return 'idFilm';
+    }
 
     public function seances()
     {

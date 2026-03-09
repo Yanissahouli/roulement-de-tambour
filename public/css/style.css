@@ -245,3 +245,24 @@ footer {
 }
 
 
+.alert {
+    padding: 12px 20px;
+    margin: 15px auto;
+    max-width: 800px;
+    border-radius: 6px;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.1rem;
+    text-align: center;
+}
+/* ================= pour les message de confirmation zehma conection reussi  ================= */
+.alert-success {
+    background-color: rgba(0, 180, 0, 0.15);
+    border: 1px solid #00b400;
+    color: #00e000;
+}
+
+.alert-error {
+    background-color: rgba(153, 25, 23, 0.15);
+    border: 1px solid #991917;
+    color: #ff4444;
+}
