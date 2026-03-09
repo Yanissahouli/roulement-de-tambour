@@ -21,10 +21,11 @@
 
 <section class="top-section">
 
-    <div class="logo">
-        <img src="{{ asset('img/logo.jpeg') }}" alt="Logo CineForAll">
-        <h2>CineForAll</h2>
-    </div>
+   <div class="logo">
+    <img src="{{ asset('img/logo_CineForAll.png') }}" alt="Logo CineForAll">
+    <h2>CineForAll</h2>
+</div>
+
 
     <nav class="nav-menu">
         <a href="{{ route('home') }}">Accueil</a>
