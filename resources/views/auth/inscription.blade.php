@@ -6,11 +6,11 @@
         <h2 style="font-family: 'Orbitron', sans-serif; color: #e0e0e0; margin-bottom: 25px; text-align: center;">INSCRIPTION</h2>
 
         @if ($errors->any())
-            <ul style="color: #ff4444; margin-bottom: 20px;">
+            <div style="background: #7a1210; color: white; padding: 10px 15px; border-radius: 8px; margin-bottom: 20px;">
                 @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
+                    <p>{{ $error }}</p>
                 @endforeach
-            </ul>
+            </div>
         @endif
 
         <form method="POST" action="/inscription">

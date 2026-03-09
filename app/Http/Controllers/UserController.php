@@ -24,6 +24,15 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'nomUti' => 'required',
+            'preUti' => 'required',
+            'mailUtil' => 'required|email|unique:utilisateur,mailUtil',
+            'mdpUti' => 'required',
+        ], [
+            'mailUtil.unique' => 'Un compte existe déjà avec cet email.',
+        ]);
+
         $dao = new Utilisateur_DAO();
         $dao->create([
             'nomUti' => $request->nomUti,
