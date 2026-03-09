@@ -27,6 +27,19 @@ header {
     border-bottom: 2px solid #7a1210;
 }
 
+.logo img {
+    width: 80px;
+    height: auto;
+}
+
+.logo h2 {
+    color: #991917;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+
 /* ================= TOP SECTION ================= */
 .top-section {
     display: flex;
@@ -37,17 +50,6 @@ header {
     border-bottom: 2px solid #991917;
 }
 
-.logo img {
-    width: 80px;
-}
-
-.logo h2 {
-    color: #991917;
-    font-family: 'Orbitron', sans-serif;
-    font-size: 18px;
-    margin-top: 5px;
-    letter-spacing: 3px;
-}
 
 .nav-menu {
     background-color: #0f3460;

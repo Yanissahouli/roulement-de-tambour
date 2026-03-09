@@ -17,7 +17,7 @@
 <section class="top-section">
 
     <div class="logo">
-        <img src="{{ asset('img/logo.jpeg') }}" alt="Logo CineForAll">
+       <img src="{{ asset('img/logo_CineForAll.png') }}" alt="Logo CineForAll">
         <h2>CineForAll</h2>
     </div>
 
