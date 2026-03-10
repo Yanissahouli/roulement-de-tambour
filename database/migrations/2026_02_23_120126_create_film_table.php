@@ -13,7 +13,6 @@ return new class extends Migration
             $table->string('titFilm', 200);
             $table->text('desFilm');
             $table->date('annsorFilm');
-            
             $table->string('lanFilm', 50);
             $table->time('durFilm');
             $table->timestamps();

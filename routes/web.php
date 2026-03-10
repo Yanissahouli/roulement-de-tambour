@@ -13,7 +13,7 @@ Route::get('/', [AccueilController::class, 'index'])->name('home');
 
 /// Films
 Route::get('/films', [FilmController::class, 'index'])->name('film.index');
-//cration 
+//cration
 Route::get('/films/create', [FilmController::class, 'create'])->name('film.create')->middleware('auth');
 Route::post('/films', [FilmController::class, 'store'])->name('film.store')->middleware('auth');
 //
@@ -53,7 +53,9 @@ Route::get('/cinemas/{cinema}', [CinemaController::class, 'show'])->name('cinema
 Route::get('/inscription', [UserController::class, 'showInscription']);
 Route::post('/inscription', [UserController::class, 'store']);
 
-//bouton connection 
+Route::get('/cineastes/{id}', [CineasteController::class, 'show'])->name('cineaste.show');
+
+//bouton connection
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::post('/logout', [AuthController::class, 'logout']);
  //Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
