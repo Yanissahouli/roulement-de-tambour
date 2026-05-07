@@ -15,6 +15,9 @@
 
         <form method="POST" action="/login">
             @csrf
+            @if(request('redirect'))
+                <input type="hidden" name="redirect" value="{{ request('redirect') }}">
+            @endif
             <div class="form-group">
                 <label style="color: #aaa;">Email</label>
                 <input type="email" name="email" value="{{ old('email') }}" required>

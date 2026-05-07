@@ -14,8 +14,7 @@ class AuthController extends Controller
     public function logout()
     {
         auth()->logout();
-        return redirect('/');
-    }
+        return redirect()->intended(route('home'));    }
 
     public function login(Request $request)
     {
@@ -26,7 +25,8 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended('/');
+            $redirect = $request->input('redirect', '/');
+            return redirect($redirect);
         }
 
         return back()->withErrors([
