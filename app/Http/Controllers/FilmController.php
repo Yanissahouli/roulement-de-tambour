@@ -45,6 +45,7 @@ class FilmController extends Controller
             'durFilm' => $request->durFilm,
             'imgFilm' => $imgNom,
         ]);
+
         $seance = \App\Models\Seance::create([
             'nomSeance' => $request->nomSeance,
             'tarifSeance' => $request->tarifSeance,
@@ -85,7 +86,7 @@ class FilmController extends Controller
     // Supprime le film et ses liaisons
     public function destroy(Film $film)
     {
-        // Supprime les liaisons dans correspond et diffuser
+        
         \DB::table('correspond')->where('idFilm', $film->idFilm)->delete();
         \DB::table('diffuser')->where('idFilm', $film->idFilm)->delete();
         $film->delete();
