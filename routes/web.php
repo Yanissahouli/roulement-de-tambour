@@ -36,10 +36,8 @@ Route::get('/cinemas/{cinema}', [CinemaController::class, 'show'])->name('cinema
 
 
 Route::get('/cinemas/{cinema}', [CinemaController::class, 'show']);
-// ajouter ajd
-Route::delete('/reservation/{idSeance}/delete', [ReservationController::class, 'destroy'])->middleware('auth');
-Route::get('/reservation/{idSeance}/edit', [ReservationController::class, 'edit'])->middleware('auth');
-Route::put('/reservation/{idSeance}/update', [ReservationController::class, 'update'])->middleware('auth'); 
+
+
 
 // Séances
 Route::get('/seances/{seance}', [SeanceController::class, 'show']);
