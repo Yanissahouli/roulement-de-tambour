@@ -81,12 +81,12 @@ class DatabaseSeeder extends Seeder
             ['idSal' => 'SAL013', 'nomSalle' => 'Salle 1', 'capSal' => 170, 'idCin' => 8],
         ]);
 
-        DB::table('utilisateur')->insert([
-            ['nomUti' => 'Dupont', 'preUti' => 'Jean', 'mailUtil' => 'jean.dupont@gmail.com', 'mdpUti' => bcrypt('password123'), 'rolUti' => 'user'],
-            ['nomUti' => 'Martin', 'preUti' => 'Marie', 'mailUtil' => 'marie.martin@gmail.com', 'mdpUti' => bcrypt('password123'), 'rolUti' => 'admin'],
-            ['nomUti' => 'Bernard', 'preUti' => 'Paul', 'mailUtil' => 'paul.bernard@gmail.com', 'mdpUti' => bcrypt('password123'), 'rolUti' => 'user'],
-            ['nomUti' => 'Leroy', 'preUti' => 'Sophie', 'mailUtil' => 'sophie.leroy@gmail.com', 'mdpUti' => bcrypt('password123'), 'rolUti' => 'user'],
-            ['nomUti' => 'Moreau', 'preUti' => 'Lucas', 'mailUtil' => 'lucas.moreau@gmail.com', 'mdpUti' => bcrypt('password123'), 'rolUti' => 'user'],
+        DB::table('users')->insert([
+            ['name' => 'Jean Dupont', 'email' => 'jean.dupont@gmail.com', 'password' => bcrypt('password123'), 'role' => 'user'],
+            ['name' => 'Marie Martin', 'email' => 'marie.martin@gmail.com', 'password' => bcrypt('password123'), 'role' => 'admin'],
+            ['name' => 'Paul Bernard', 'email' => 'paul.bernard@gmail.com', 'password' => bcrypt('password123'), 'role' => 'user'],
+            ['name' => 'Sophie Leroy', 'email' => 'sophie.leroy@gmail.com', 'password' => bcrypt('password123'), 'role' => 'user'],
+            ['name' => 'Lucas Moreau', 'email' => 'lucas.moreau@gmail.com', 'password' => bcrypt('password123'), 'role' => 'user'],
         ]);
 
         DB::table('seance')->insert([
