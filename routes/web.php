@@ -45,6 +45,10 @@ Route::get('/seances/{seance}', [SeanceController::class, 'show']);
 // Réservations (protégées)
 Route::get('/reservation/{seance}', [ReservationController::class, 'create'])->name('reservation.create')->   middleware('auth');
 Route::post('/reservation', [ReservationController::class, 'store'])->middleware('auth');
+// ajouter ajd
+Route::delete('/reservation/{idSeance}/delete', [ReservationController::class, 'destroy'])->middleware('auth');
+Route::get('/reservation/{idSeance}/edit', [ReservationController::class, 'edit'])->middleware('auth');
+Route::put('/reservation/{idSeance}/update', [ReservationController::class, 'update'])->middleware('auth');
 
 // Auth
 Route::get('/login', [AuthController::class, 'loginForm'])->name('login');
