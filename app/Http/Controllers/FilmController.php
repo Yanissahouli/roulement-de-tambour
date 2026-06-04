@@ -10,16 +10,20 @@ class FilmController extends Controller
             'films' => Film::all()
         ]);
     }
+
     public function show(Film $film)
     {
-        $film->load('seances.salle.cinema');
+        // Charge les séances, acteurs et réalisateurs
+        $film->load('seances.salle.cinema', 'acteurs', 'realisateurs');
         return view('film.show', compact('film'));
     }
+
     public function create()
     {
         $salles = \App\Models\Salle::with('cinema')->get();
         return view('film.create', compact('salles'));
     }
+
     public function store(Request $request)
     {
         $request->validate([
@@ -45,7 +49,6 @@ class FilmController extends Controller
             'durFilm' => $request->durFilm,
             'imgFilm' => $imgNom,
         ]);
-
         $seance = \App\Models\Seance::create([
             'nomSeance' => $request->nomSeance,
             'tarifSeance' => $request->tarifSeance,
@@ -58,11 +61,13 @@ class FilmController extends Controller
         ]);
         return redirect()->route('film.show', $film->idFilm)->with('success', 'Film et séance ajoutés !');
     }
+
     // Affiche le formulaire de modification
     public function edit(Film $film)
     {
         return view('film.edit', compact('film'));
     }
+
     // Sauvegarde les modifications
     public function update(Request $request, Film $film)
     {
@@ -73,22 +78,22 @@ class FilmController extends Controller
             'lanFilm' => 'required',
             'durFilm' => 'required',
         ]);
-
         $film->titFilm = $request->titFilm;
         $film->desFilm = $request->desFilm;
         $film->annsorFilm = $request->annsorFilm;
         $film->lanFilm = $request->lanFilm;
         $film->durFilm = $request->durFilm;
         $film->save();
-
         return redirect('/films/' . $film->idFilm)->with('success', 'Film modifié avec succès !');
     }
+
     // Supprime le film et ses liaisons
     public function destroy(Film $film)
     {
-        
         \DB::table('correspond')->where('idFilm', $film->idFilm)->delete();
         \DB::table('diffuser')->where('idFilm', $film->idFilm)->delete();
+        \DB::table('jouer')->where('idFilm', $film->idFilm)->delete();
+        \DB::table('composer')->where('idFilm', $film->idFilm)->delete();
         $film->delete();
         return redirect()->route('film.index')->with('success', 'Film supprimé avec succès !');
     }

@@ -14,6 +14,7 @@
                 <li><strong>Langue :</strong> {{ $film->lanFilm }}</li>
                 <li><strong>Durée :</strong> {{ $film->durFilm }}</li>
             </ul>
+
             @auth
                 @if(auth()->user()->role === 'admin')
                     <div style="display: flex; gap: 10px; margin-top: 20px;">
@@ -30,6 +31,38 @@
                     </div>
                 @endif
             @endauth
+
+            {{-- Réalisateurs --}}
+            <h3 style="margin-top: 30px; font-family: 'Orbitron', sans-serif; letter-spacing: 2px;">RÉALISATEURS</h3>
+            <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px;">
+                @forelse($film->realisateurs as $cineaste)
+                    <a href="/cineastes/{{ $cineaste->idCineaste }}" style="text-decoration: none;">
+                        <div style="background: #0f3460; border: 1px solid #991917; border-radius: 8px; padding: 10px 15px; text-align: center;">
+                            <p style="color: #e0e0e0; font-weight: 700;">{{ $cineaste->preCineaste }} {{ $cineaste->nomCineaste }}</p>
+                            <p style="color: #aaa; font-size: 0.85rem;">{{ $cineaste->natCineaste }}</p>
+                        </div>
+                    </a>
+                @empty
+                    <p style="color: #aaa;">Aucun réalisateur renseigné.</p>
+                @endforelse
+            </div>
+
+            {{-- Acteurs --}}
+            <h3 style="margin-top: 30px; font-family: 'Orbitron', sans-serif; letter-spacing: 2px;">ACTEURS</h3>
+            <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px;">
+                @forelse($film->acteurs as $cineaste)
+                    <a href="/cineastes/{{ $cineaste->idCineaste }}" style="text-decoration: none;">
+                        <div style="background: #0f3460; border: 1px solid #991917; border-radius: 8px; padding: 10px 15px; text-align: center;">
+                            <p style="color: #e0e0e0; font-weight: 700;">{{ $cineaste->preCineaste }} {{ $cineaste->nomCineaste }}</p>
+                            <p style="color: #aaa; font-size: 0.85rem;">🎭 {{ $cineaste->pivot->typRole }}</p>
+                        </div>
+                    </a>
+                @empty
+                    <p style="color: #aaa;">Aucun acteur renseigné.</p>
+                @endforelse
+            </div>
+
+            {{-- Séances --}}
             <h3 style="margin-top: 30px; font-family: 'Orbitron', sans-serif; letter-spacing: 2px;">SÉANCES DISPONIBLES</h3>
             <div style="display: flex; flex-wrap: wrap; gap: 15px; margin-top: 15px;">
                 @forelse($film->seances as $seance)
@@ -44,6 +77,7 @@
                     <p>Aucune séance disponible.</p>
                 @endforelse
             </div>
+
         </div>
     </div>
 @endsection
