@@ -2,13 +2,25 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Film;
+use App\Models\Genre;
 class FilmController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        return view('film.film', [
-            'films' => Film::all()
-        ]);
+        $query = Film::query();
+
+        if ($request->filled('search')) {
+            $query->where('titFilm', 'like', '%' . $request->search . '%');
+        }
+
+        if ($request->filled('genre')) {
+            $query->whereHas('genres', fn($q) => $q->where('genre.idGen', $request->genre));
+        }
+
+        $films = $query->get();
+        $genres = Genre::orderBy('libGen')->get();
+
+        return view('film.film', compact('films', 'genres'));
     }
 
     public function show(Film $film)
@@ -90,6 +102,7 @@ class FilmController extends Controller
     // Supprime le film et ses liaisons
     public function destroy(Film $film)
     {
+
         \DB::table('correspond')->where('idFilm', $film->idFilm)->delete();
         \DB::table('diffuser')->where('idFilm', $film->idFilm)->delete();
         \DB::table('jouer')->where('idFilm', $film->idFilm)->delete();

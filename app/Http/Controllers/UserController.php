@@ -9,13 +9,21 @@ use Illuminate\Http\Request;
 class UserController extends Controller
 {
     public function index()
-{
-    $user = auth()->user();
-    $reservations = \App\Models\Reservation::where('idUti', auth()->id())
-                    ->with('seance')
-                    ->get();
-    return view('user.index', compact('user', 'reservations'));
-}
+    {
+        $user = auth()->user();
+        $reservations = \App\Models\Reserver::where('idUti', auth()->id())
+            ->with('seance')
+            ->get();
+
+        $reservationsAVenir = $reservations->filter(
+            fn($r) => \Carbon\Carbon::parse($r->seance->dateSeance)->isFuture()
+        );
+        $reservationsPassees = $reservations->filter(
+            fn($r) => !\Carbon\Carbon::parse($r->seance->dateSeance)->isFuture()
+        );
+
+        return view('user.index', compact('user', 'reservationsAVenir', 'reservationsPassees'));
+    }
 
     public function showInscription()
     {

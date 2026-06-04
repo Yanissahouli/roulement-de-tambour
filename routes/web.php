@@ -22,6 +22,7 @@ Route::get('/films/{film}', [FilmController::class, 'show'])->name('film.show');
 
 // Cinémas
 Route::get('/cinemas', [CinemaController::class, 'index'])->name('cinema.index');
+
 Route::get('/cinemas/create', [CinemaController::class, 'create'])->name('cinema.create')->middleware('auth');
 Route::post('/cinemas', [CinemaController::class, 'store'])->name('cinema.store')->middleware('auth');
 Route::get('/cinemas/{cinema}/edit', [CinemaController::class, 'edit'])->name('cinema.edit')->middleware('auth');
@@ -38,12 +39,20 @@ Route::put('/cineastes/{id}', [CineasteController::class, 'update'])->name('cine
 Route::delete('/cineastes/{id}', [CineasteController::class, 'destroy'])->name('cineaste.destroy')->middleware('auth');
 Route::get('/cineastes/{id}', [CineasteController::class, 'show'])->name('cineaste.show');
 
+Route::get('/cinemas/{cinema}', [CinemaController::class, 'show']);
+
+
+
 // Séances
 Route::get('/seances/{seance}', [SeanceController::class, 'show']);
 
 // Réservations (protégées)
 Route::get('/reservation/{seance}', [ReservationController::class, 'create'])->name('reservation.create')->middleware('auth');
 Route::post('/reservation', [ReservationController::class, 'store'])->middleware('auth');
+// ajouter ajd
+Route::delete('/reservation/{idSeance}/delete', [ReservationController::class, 'destroy'])->middleware('auth');
+Route::get('/reservation/{idSeance}/edit', [ReservationController::class, 'edit'])->middleware('auth');
+Route::put('/reservation/{idSeance}/update', [ReservationController::class, 'update'])->middleware('auth');
 
 // Auth
 Route::get('/login', [AuthController::class, 'loginForm'])->name('login');
@@ -53,7 +62,9 @@ Route::post('/register', [AuthController::class, 'register']);
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::post('/logout', [AuthController::class, 'logout']);
 
-// Utilisateurs (protégé)
+
+
+ // Utilisateurs (protégé)
 Route::get('/users', [UserController::class, 'index'])->name('user.index')->middleware('auth');
 Route::get('/inscription', [UserController::class, 'showInscription']);
 Route::post('/inscription', [UserController::class, 'store']);

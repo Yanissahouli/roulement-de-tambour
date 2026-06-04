@@ -21,7 +21,8 @@ class Film extends Model
     // Acteurs du film
     public function acteurs()
     {
-        return $this->belongsToMany(Cineaste::class, 'jouer', 'idFilm', 'idCineaste')->withPivot('typRole');
+        return $this->belongsToMany(Cineaste::class, 'jouer', 'idFilm', 'idCineaste')
+            ->withPivot('typRole');
     }
 
     // Réalisateurs du film
@@ -29,4 +30,10 @@ class Film extends Model
     {
         return $this->belongsToMany(Cineaste::class, 'composer', 'idFilm', 'idCineaste');
     }
-}
+
+    // Genres du film
+    public function genres()
+    {
+        return $this->belongsToMany(Genre::class, 'avoir', 'idFilm', 'idGen');
+    }
+    }

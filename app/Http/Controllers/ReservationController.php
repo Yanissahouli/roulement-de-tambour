@@ -55,4 +55,64 @@ class ReservationController extends Controller
 
         return redirect('/')->with('success', 'Réservation confirmée !');
     }
+    public function destroy($idSeance)
+    {
+        $seance = \App\Models\Seance::find($idSeance);
+
+        if (\Carbon\Carbon::parse($seance->dateSeance)->subHours(2)->isPast()) {
+            return redirect()->back()->with('error', 'Impossible de supprimer moins de 2h avant la séance.');
+        }
+
+        \App\Models\Reserver::where('idUti', auth()->user()->id)
+            ->where('idSeance', $idSeance)
+            ->delete();
+
+        return redirect()->back()->with('success', 'Réservation supprimée.');
+    }
+
+    public function edit($idSeance)
+    {
+        $seance = \App\Models\Seance::find($idSeance);
+        $reservation = \App\Models\Reserver::where('idUti', auth()->user()->id)
+            ->where('idSeance', $idSeance)
+            ->firstOrFail();
+
+        if (\Carbon\Carbon::parse($seance->dateSeance)->subHours(2)->isPast()) {
+            return redirect()->back()->with('error', 'Impossible de modifier moins de 2h avant la séance.');
+        }
+
+        $placesReservees = \App\Models\Reserver::where('idSeance', $idSeance)->sum('nbPers');
+        $placesDisponibles = $seance->salle->capSal - $placesReservees + $reservation->nbPers;
+
+        return view('reservation.edit', compact('seance', 'reservation', 'placesDisponibles'));
+    }
+
+    public function update(Request $request, $idSeance)
+    {
+        $seance = \App\Models\Seance::find($idSeance);
+
+        if (\Carbon\Carbon::parse($seance->dateSeance)->subHours(2)->isPast()) {
+            return redirect()->back()->with('error', 'Impossible de modifier moins de 2h avant la séance.');
+        }
+
+        $reservation = \App\Models\Reserver::where('idUti', auth()->user()->id)
+            ->where('idSeance', $idSeance)
+            ->firstOrFail();
+
+        $placesReservees = \App\Models\Reserver::where('idSeance', $idSeance)->sum('nbPers');
+        $placesDisponibles = $seance->salle->capSal - $placesReservees + $reservation->nbPers;
+
+        if ($request->nbPers > $placesDisponibles) {
+            return redirect()->back()->with('error', 'Il ne reste que ' . $placesDisponibles . ' place(s) disponible(s).');
+        }
+
+        if ($request->nbPers > 10) {
+            return redirect()->back()->with('error', 'Vous ne pouvez pas réserver plus de 10 places.');
+        }
+
+        $reservation->nbPers = $request->nbPers;
+        $reservation->save();
+
+        return redirect('/users')->with('success', 'Réservation modifiée !');
+    }
 }
