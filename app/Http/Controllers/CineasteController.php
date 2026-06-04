@@ -1,12 +1,23 @@
 <?php
 namespace App\Http\Controllers;
 use App\Models\Cineaste;
+use Illuminate\Http\Request;
 
 class CineasteController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $cineastes = Cineaste::all();
+        $query = Cineaste::query();
+
+        if ($request->filled('search')) {
+            $search = $request->search;
+            $query->where(function($q) use ($search) {
+                $q->where('nomCineaste', 'like', '%' . $search . '%')
+                  ->orWhere('preCineaste', 'like', '%' . $search . '%');
+            });
+        }
+
+        $cineastes = $query->get();
         return view('cineaste.index', compact('cineastes'));
     }
 

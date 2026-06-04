@@ -18,4 +18,9 @@ class Film extends Model
     {
         return $this->belongsToMany(Seance::class, 'correspond', 'idFilm', 'idSeance');
     }
+
+    public function genres()
+    {
+        return $this->belongsToMany(Genre::class, 'avoir', 'idFilm', 'idGen');
+    }
 }

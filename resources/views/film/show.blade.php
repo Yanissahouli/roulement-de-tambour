@@ -13,6 +13,11 @@
                 <li><strong>Année de sortie :</strong> {{ $film->annsorFilm }}</li>
                 <li><strong>Langue :</strong> {{ $film->lanFilm }}</li>
                 <li><strong>Durée :</strong> {{ $film->durFilm }}</li>
+                <li><strong>Genre(s) :</strong>
+                    @foreach($film->genres as $genre)
+                        {{ $genre->libGen }}{{ !$loop->last ? ', ' : '' }}
+                    @endforeach
+                </li>
             </ul>
             @auth
                 @if(auth()->user()->role === 'admin')

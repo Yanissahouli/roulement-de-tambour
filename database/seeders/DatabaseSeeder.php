@@ -90,18 +90,18 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('seance')->insert([
-            ['nomSeance' => 'Séance 1',  'tarifSeance' => 15.00,  'dateSeance' => '2026-03-10 14:00:00', 'idSal' => 'SAL001'],
-            ['nomSeance' => 'Séance 2',  'tarifSeance' => 15.00, 'dateSeance' => '2026-03-10 17:00:00', 'idSal' => 'SAL002'],
-            ['nomSeance' => 'Séance 3',  'tarifSeance' => 15.00,  'dateSeance' => '2026-03-11 20:00:00', 'idSal' => 'SAL004'],
-            ['nomSeance' => 'Séance 4',  'tarifSeance' => 15.00, 'dateSeance' => '2026-03-12 15:00:00', 'idSal' => 'SAL005'],
-            ['nomSeance' => 'Séance 5',  'tarifSeance' => 15.00,  'dateSeance' => '2026-03-13 18:00:00', 'idSal' => 'SAL006'],
-            ['nomSeance' => 'Séance 6',  'tarifSeance' => 15.00, 'dateSeance' => '2026-03-14 21:00:00', 'idSal' => 'SAL008'],
-            ['nomSeance' => 'Séance 7',  'tarifSeance' => 15.00,  'dateSeance' => '2026-03-15 14:00:00', 'idSal' => 'SAL003'],
-            ['nomSeance' => 'Séance 8',  'tarifSeance' => 15.00, 'dateSeance' => '2026-03-15 19:00:00', 'idSal' => 'SAL007'],
-            ['nomSeance' => 'Séance 9',  'tarifSeance' => 15.00, 'dateSeance' => '2026-03-16 16:00:00', 'idSal' => 'SAL009'],
-            ['nomSeance' => 'Séance 10', 'tarifSeance' => 15.00,  'dateSeance' => '2026-03-17 20:00:00', 'idSal' => 'SAL010'],
-            ['nomSeance' => 'Séance 11', 'tarifSeance' => 15.00, 'dateSeance' => '2026-03-18 15:00:00', 'idSal' => 'SAL011'],
-            ['nomSeance' => 'Séance 12', 'tarifSeance' => 15.00,  'dateSeance' => '2026-03-19 18:00:00', 'idSal' => 'SAL012'],
+            ['nomSeance' => 'Séance 1',  'tarifSeance' => 15.00,  'dateSeance' => '2026-06-10 14:00:00', 'idSal' => 'SAL001'],
+            ['nomSeance' => 'Séance 2',  'tarifSeance' => 15.00, 'dateSeance' => '2026-06-10 17:00:00', 'idSal' => 'SAL002'],
+            ['nomSeance' => 'Séance 3',  'tarifSeance' => 15.00,  'dateSeance' => '2026-06-11 20:00:00', 'idSal' => 'SAL004'],
+            ['nomSeance' => 'Séance 4',  'tarifSeance' => 15.00, 'dateSeance' => '2026-06-12 15:00:00', 'idSal' => 'SAL005'],
+            ['nomSeance' => 'Séance 5',  'tarifSeance' => 15.00,  'dateSeance' => '2026-06-13 18:00:00', 'idSal' => 'SAL006'],
+            ['nomSeance' => 'Séance 6',  'tarifSeance' => 15.00, 'dateSeance' => '2026-06-14 21:00:00', 'idSal' => 'SAL008'],
+            ['nomSeance' => 'Séance 7',  'tarifSeance' => 15.00,  'dateSeance' => '2026-06-15 14:00:00', 'idSal' => 'SAL003'],
+            ['nomSeance' => 'Séance 8',  'tarifSeance' => 15.00, 'dateSeance' => '2026-06-15 19:00:00', 'idSal' => 'SAL007'],
+            ['nomSeance' => 'Séance 9',  'tarifSeance' => 15.00, 'dateSeance' => '2026-06-16 16:00:00', 'idSal' => 'SAL009'],
+            ['nomSeance' => 'Séance 10', 'tarifSeance' => 15.00,  'dateSeance' => '2026-06-17 20:00:00', 'idSal' => 'SAL010'],
+            ['nomSeance' => 'Séance 11', 'tarifSeance' => 15.00, 'dateSeance' => '2026-06-18 15:00:00', 'idSal' => 'SAL011'],
+            ['nomSeance' => 'Séance 12', 'tarifSeance' => 15.00,  'dateSeance' => '2026-06-19 18:00:00', 'idSal' => 'SAL012'],
         ]);
 
         DB::table('diffuser')->insert([
